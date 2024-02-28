@@ -1,25 +1,46 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { PoMenuItem } from '@po-ui/ng-components';
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [DashboardComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
 
-  readonly menus: Array<PoMenuItem> = [
-    { label: 'Home', action: this.onClick.bind(this) },
-    { label: 'Monitores', action: this.onClick.bind(this) }
-  ];
+  constructor(private router: Router) {
 
-  private onClick() {
-    alert('Clicked in menu item')
   }
 
+  
+  readonly MenuItens: Array<PoMenuItem> = [
+    { label: 'DashBoard', action: this.onClick.bind(this) },
+    { label: 'Monitores', 
+        subItems:[{label: 'CUF0030', action: this.onClick.bind(this)},
+                  {label: 'CUF0050', action: this.onClick.bind(this)},
+                  {label: 'CUF0069', action: () => this.router.navigate(['cuf0069'])},
+                ]
+    }
+  ];
+
+/* link: './cuf0069'*/
+
+  private onClick() {
+    alert('Clicou no item do menu')
+  }
+
+  /*
+  onCuf0069() {
+    
+  }
+*/
+
+  
 }
+
+
