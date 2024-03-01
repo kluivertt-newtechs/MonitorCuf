@@ -19,28 +19,28 @@ export class AppComponent {
 
   
   readonly MenuItens: Array<PoMenuItem> = [
-    { label: 'DashBoard', action: this.onClick.bind(this) },
+    { label: 'DashBoard', action: () => this.router.navigate(['DashBoard'])},
     { label: 'Monitores', 
-        subItems:[{label: 'CUF0030', action: this.onClick.bind(this)},
-                  {label: 'CUF0050', action: this.onClick.bind(this)},
+        subItems:[{label: 'CUF0030', action: this.onCuf0030},
+                  {label: 'CUF0050', action: this.onCuf0050},
                   {label: 'CUF0069', action: () => this.router.navigate(['cuf0069'])},
                 ]
     }
   ];
 
-/* link: './cuf0069'*/
-
   private onClick() {
     alert('Clicou no item do menu')
   }
 
-  /*
-  onCuf0069() {
-    
-  }
-*/
+  private onCuf0030() {
 
-  
+  }
+
+  private onCuf0050() {
+
+  }
+
+
 }
 
 
