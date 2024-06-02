@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Cuf0069Component } from './monitor/cuf0069/cuf0069.component';
+import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
-
 const routes: Routes = [
-  {path: 'monitor',
-     loadChildren: () =>
-     import('./monitor/monitor.module').then((module) => module.MonitorModule)},
-  {path: 'DashBoard', component: DashboardComponent},
-  {path: 'cuf0069', component: Cuf0069Component},
-  
+  {path: 'home', component: HomeComponent},
+  {path: 'dashboard', component: DashboardComponent},
+ /*
+  { 
+    path: 'home', component: HomeComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent } // Rota para o Dashboard dentro do HomeComponent
+    ]
+  },*/
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' }
+
 ];
 
 
@@ -22,4 +27,8 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 
-  
+
+// { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
+// { path: '', redirectTo: './home', pathMatch: 'full' }
+ //  path: '',
+ //  loadChildren: () => import('./home/home.module').then(m => m.HomeModule)

@@ -1,8 +1,19 @@
-<div>
-    
-    <po-page-default
-        p-title="Dashboard"
-    ></po-page-default>
+<po-page-default 
+    p-title="DASHBOARD" 
+    [p-actions]="AcaoDash" 
+    [p-breadcrumb]="breadcrumb">
 
-</div>
+    <div class="po-wrapper">
 
+        <po-widget class="po-md-6 po-lg-4 po-mb-2" p-title="Notas Fiscais">
+            <div class="po-font-subtitle po-text-center">0</div>
+        </po-widget>
+
+        <po-widget class="po-md-6 po-lg-4 po-mb-2" p-title="E-mails">
+            <div class="po-font-subtitle po-text-center">0</div>
+        </po-widget>
+
+    </div>
+
+
+</po-page-default>

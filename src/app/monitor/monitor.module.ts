@@ -1,19 +1,18 @@
-import { Component, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Cuf0069Component } from './cuf0069/cuf0069.component';
 import { SharedModule } from '../shared/shared.module';
-
+import { Cuf0069Component } from './cuf0069/cuf0069.component';
 
 
 @NgModule({
   declarations: [
-    Cuf0069Component,
-
-    
+    Cuf0069Component  
   ],
   imports: [
     CommonModule,
-    SharedModule
-  ]
+    SharedModule,
+    
+  ],
+
 })
 export class MonitorModule { }
