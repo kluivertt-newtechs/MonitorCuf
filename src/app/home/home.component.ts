@@ -25,7 +25,7 @@ export class HomeComponent {
       subItems:[//{label: 'CUF0030', action: this.onCuf0030},
                 //{label: 'CUF0050', action: this.onCuf0050},
                 {label: 'CUF0069', 
-                 link: './monitor/cuf0069'}
+                 link: '/monitores/cuf0069'}
                 //action: () => this.router.navigate(['cuf0069'])},
                 ]
     }

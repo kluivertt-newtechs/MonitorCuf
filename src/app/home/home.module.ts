@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
 import { DashboardModule } from '../dashboard/dashboard.module';
+import { Cuf0069Module } from './../monitores/cuf0069/cuf0069.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { DashboardModule } from '../dashboard/dashboard.module';
     HomeRoutingModule,
     SharedModule,
     DashboardModule,
+    Cuf0069Module
     
   ]
 })
