@@ -1,14 +1,67 @@
 <po-page-default
-    [p-actions]="Acao69" 
     [p-breadcrumb]="breadcrumb">
 
-
     <div class='wrapper'>
+        <po-widget>
+            <div class="po-row">
 
+                <po-checkbox class= 'po-md-1' p-label="Pendente"    name="cbPendente"   ></po-checkbox>
+                <po-checkbox class= 'po-md-1' p-label="Reenvio"     name="cbReenvio"    ></po-checkbox>
+                <po-checkbox class= 'po-md-1' p-label="Enfileirado" name="cbEnfileirado"></po-checkbox>
+                <po-checkbox class= 'po-md-1' p-label="Erro"        name="cbErro"       ></po-checkbox>
+                <po-checkbox class= 'po-md-1' p-label="Enviado"     name="cbEnviado"    ></po-checkbox>
+                <po-checkbox class= 'po-md-1.5' p-label="Sem E-mail"  name="cbSemEmail"   ></po-checkbox>
+                
+                <div class="po-m-2"></div>
+
+                <p>
+                    <label for="dtini">  Data Emissao: </label>
+                    <input id="date" type="date" name="dtInicial" value="2000-01-01">
+                    <>
+                    <input id="date" type="date" name="daFinal"   value="2099-12-31">  
+                </p>    
+                
+
+                <div class="po-m-1"></div>
+
+                <po-button btAtualiza
+                    p-kind="primary"
+                    p-label="Atualiza"
+                    p-icon="po-icon-refresh"
+                    (p-click)="atualizarDados"
+                ></po-button>	
+
+                <div class="po-m-1"></div>
+
+                <po-button btAtualiza
+                p-label="Filtro"
+                p-icon="po-icon-filter"
+                (p-click)="selecionaFiltro"
+                ></po-button>	
+               
+            </div>
+        </po-widget >
+
+
+        <po-table
+            [p-auto-collapse]="true"
+            [p-columns]="cuf0069Colunas"
+            [p-hide-columns-manager]="true"
+            [p-hide-table-search]="true"
+            [p-items]="cuf0069Itens"
+            [p-sort]="true"
+            [p-striped]="true"
+            p-container="shadow"
+            p-striped="true"
+            p-infinity-scroll="true"
+            [p-infinite-scroll-distance]=90
+        
+        ></po-table>
 
     </div>
 
 </po-page-default>
+
 
 
 

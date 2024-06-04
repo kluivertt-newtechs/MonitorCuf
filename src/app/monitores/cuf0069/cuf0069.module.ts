@@ -8,12 +8,16 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    Cuf0069Component
+    Cuf0069Component,
+    
   ],
   imports: [
     CommonModule,
     Cuf0069RoutingModule,
-    SharedModule
-  ]
-})
+    SharedModule,
+    
+  ],
+
+  })
+
 export class Cuf0069Module { }
