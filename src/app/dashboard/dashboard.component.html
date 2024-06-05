@@ -1,19 +1,42 @@
 <po-page-default 
-    p-title="DASHBOARD" 
-    [p-actions]="AcaoDash" 
     [p-breadcrumb]="breadcrumb">
 
     <div class="po-wrapper">
 
-        <po-widget class="po-md-6 po-lg-4 po-mb-2" p-title="Notas Fiscais">
-            <div class="po-font-subtitle po-text-center">0</div>
+        <po-widget>
+            <div class="po-row">
+                <p>
+                    <label for="dtini">  Periodo: </label>
+                    <input #periodo1 id="PerIni" type="date" [(ngModel)]="filtros.PeriodoIni">
+                    <>
+                    <input #periodo2 id="PerFim" type="date" [(ngModel)]="filtros.PeriodoFim">
+                </p> 
+                
+                <po-button btAtualiza
+                    class="po-ml-4"
+                    p-kind="primary"
+                    p-label="Atualiza"
+                    p-icon="po-icon-refresh"
+                    (p-click)="atualizarDados()"
+                ></po-button>
+            </div>
         </po-widget>
 
-        <po-widget class="po-md-6 po-lg-4 po-mb-2" p-title="E-mails">
-            <div class="po-font-subtitle po-text-center">0</div>
+        <br> <br>
+        <po-widget class="po-md-4" p-title="Notas Fiscais">
+            <po-info 
+                class="po-md-1"
+                [p-value]="qtdeNotasFiscais()"
+            ></po-info>
+        </po-widget>
+
+        <po-widget class="po-md-4" p-title="E-mails">
+            <po-info 
+                class="po-md-1"
+                [p-value]="qtdeEmails()"
+            ></po-info>
         </po-widget>
 
     </div>
-
 
 </po-page-default>

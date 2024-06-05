@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PoBreadcrumbModule, PoModule, PoPageModule, PoTableModule } from '@po-ui/ng-components';
 import { HttpClientModule } from '@angular/common/http';
 import { PoPageDynamicTableModule } from '@po-ui/ng-templates';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { PoPageDynamicTableModule } from '@po-ui/ng-templates';
     PoPageDynamicTableModule, 
     PoBreadcrumbModule,
     PoPageModule,
-    PoTableModule
+    PoTableModule,
+    FormsModule
   ],
 
   exports: [
@@ -22,7 +24,8 @@ import { PoPageDynamicTableModule } from '@po-ui/ng-templates';
     PoModule,
     PoBreadcrumbModule, 
     PoPageDynamicTableModule,
-    PoTableModule
+    PoTableModule,
+    FormsModule
   ]
 })
 export class SharedModule { }
