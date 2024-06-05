@@ -5,43 +5,114 @@
         <po-widget>
             <div class="po-row">
 
-                <po-checkbox class= 'po-md-1' p-label="Pendente"    name="cbPendente"   ></po-checkbox>
-                <po-checkbox class= 'po-md-1' p-label="Reenvio"     name="cbReenvio"    ></po-checkbox>
-                <po-checkbox class= 'po-md-1' p-label="Enfileirado" name="cbEnfileirado"></po-checkbox>
-                <po-checkbox class= 'po-md-1' p-label="Erro"        name="cbErro"       ></po-checkbox>
-                <po-checkbox class= 'po-md-1' p-label="Enviado"     name="cbEnviado"    ></po-checkbox>
-                <po-checkbox class= 'po-md-1.5' p-label="Sem E-mail"  name="cbSemEmail"   ></po-checkbox>
+                <po-checkbox 
+                    class= 'po-p-2'   
+                    p-label="Pendente"    
+                    [(ngModel)]="filtros.Pendente" 
+                ></po-checkbox>
+
+                <po-checkbox 
+                    class= 'po-ml po-m-2'   
+                    p-label="Reenvio"     
+                    [(ngModel)]="filtros.Reenvio" 
+                ></po-checkbox>
+
+                <po-checkbox 
+                    class= 'po-ml po-m-2'   
+                    p-label="Enfileirado" 
+                    [(ngModel)]="filtros.Enfileirado" 
+                ></po-checkbox>
+
+                <po-checkbox 
+                    class= 'po-ml-1 po-m-2'   
+                    p-label="Erro"        
+                    [(ngModel)]="filtros.Erro" 
+                ></po-checkbox>
+
+                <po-checkbox 
+                    class= 'po-ml po-m-2'   
+                    p-label="Enviado"     
+                    [(ngModel)]="filtros.Enviado" 
+                ></po-checkbox>
+
+                <po-checkbox 
+                    class= 'po-ml-1.5 po-m-2' 
+                    p-label="Sem E-mail"  
+                    [(ngModel)]="filtros.SemEmail" 
+                ></po-checkbox>
                 
                 <div class="po-m-2"></div>
+                <h4 class="po-m-2">Periodo:</h4>
 
-                <p>
-                    <label for="dtini">  Data Emissao: </label>
-                    <input id="dtInicial" type="date" name="dtInicial" value="2000-01-01">
-                    <>
-                    <input id="dtFinal"   type="date" name="dtFinal"   value="2099-12-31">  
-                </p>    
-                
 
+                <po-datepicker
+                    class="po-md-2"
+                     p-format="dd/mm/yyyy"
+                    [(ngModel)]="filtros.PeriodoIni"
+                ></po-datepicker>
+             
+                <po-datepicker
+                    class="po-md-2"
+                    p-format="dd/mm/yyyy"
+                    [(ngModel)]="filtros.PeriodoFim"
+                ></po-datepicker>
+
+            </div>
+
+        </po-widget>
+
+        <po-widget>
+            <div class="po-row">
+                <po-input
+                    p-label="Estabelecimento"
+                    [(ngModel)]="filtros.Estabelec"
+                ></po-input>
                 <div class="po-m-1"></div>
 
-                <po-button btAtualiza
+                <po-input
+                    p-label="Serie"
+                    [(ngModel)]="filtros.Serie"
+                ></po-input>
+                <div class="po-m-1"></div>
+
+                <po-input
+                    p-label="Nota Fiscal"
+                    [(ngModel)]="filtros.NotaFiscal"
+                ></po-input>
+
+
+                <po-button #btAtualiza
+                    class ="po-mt-4 po-ml-3"
                     p-kind="primary"
                     p-label="Atualiza"
                     p-icon="po-icon-refresh"
-                    (p-click)="atualizarDados"
+                    (p-click)="atualizarDados()"
+                ></po-button>
+                
+                <div class="po-m-5"></div>
+                
+
+                <po-button #apiEmail
+                    class="po-mt-4 po-ml-5"
+                    p-label="API Email"
+                    (p-click)="aDefinir"
+                ></po-button>	
+                
+
+                <po-button #ConsultaRPA
+                    class="po-mt-4 po-ml-1"
+                    p-label="Consulta RPA"
+                    (p-click)="aDefinir"
                 ></po-button>	
 
-                <div class="po-m-1"></div>
-
-                <po-button btAtualiza
-                p-label="Filtro"
-                p-icon="po-icon-filter"
-                (p-click)="selecionaFiltro"
+                <po-button #Relatorio
+                    class="po-mt-4 po-ml-1"
+                    p-label="Relatorio"
+                    (p-click)="aDefinir"
                 ></po-button>	
-               
             </div>
-        </po-widget >
 
+        </po-widget >
 
         <po-table
             [p-auto-collapse]="true"
