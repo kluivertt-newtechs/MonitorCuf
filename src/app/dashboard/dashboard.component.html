@@ -5,12 +5,18 @@
 
         <po-widget>
             <div class="po-row">
-                <p>
-                    <label for="dtini">  Periodo: </label>
-                    <input #periodo1 id="PerIni" type="date" [(ngModel)]="filtros.PeriodoIni">
-                    <>
-                    <input #periodo2 id="PerFim" type="date" [(ngModel)]="filtros.PeriodoFim">
-                </p> 
+
+                <po-datepicker
+                    class="po-md-2"
+                    p-format="dd/mm/yyyy"
+                    [(ngModel)]="filtros.PeriodoIni"
+                ></po-datepicker>
+
+                <po-datepicker
+                    class="po-md-2"
+                    p-format="dd/mm/yyyy"
+                    [(ngModel)]="filtros.PeriodoFim"
+                ></po-datepicker>
                 
                 <po-button btAtualiza
                     class="po-ml-4"
@@ -26,14 +32,14 @@
         <po-widget class="po-md-4" p-title="Notas Fiscais">
             <po-info 
                 class="po-md-1"
-                [p-value]="qtdeNotasFiscais()"
+                [p-value]="informa.totalNotas.toString() "
             ></po-info>
         </po-widget>
 
         <po-widget class="po-md-4" p-title="E-mails">
             <po-info 
                 class="po-md-1"
-                [p-value]="qtdeEmails()"
+                [p-value]="informa.totalEmail.toString()"
             ></po-info>
         </po-widget>
 

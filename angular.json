@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/monitor-cuf",
+            "outputPath": "dist/protege.monitor.cuf",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [

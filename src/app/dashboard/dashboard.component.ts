@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
     PeriodoFim: ""
       
   }
+
+  informa = {"totalNotas":0, "totalEmail":0}
   
   constructor(
     private service: DashboardService, 
@@ -65,32 +67,33 @@ export class DashboardComponent implements OnInit {
   atualizarDados() {
     this.service.getAll(this.filtros).subscribe({
       next:result => {
-        this.retornoDados = result.items,
-        this.storageService.setDados('DadosDash', this.retornoDados)
+        this.informa = result
+
       },
       error:erro => {
         console.log(erro)
       },
+
+      complete:() => {
+     //   this.storageService.setDados('DadosDash', this.retornoDados)
+      }
     })
 
   }
 
+  /*
   qtdeNotasFiscais() {
-    const qtNF = this.storageService.getDados('totalNotas')
-    if (qtNF == null) {
-      return '0'
-    }
-    return "0" //qtNF
+    const qtNF = this.storageService.getDados('DadosDash') || {"totalNotas":0}
+    return qtNF.totalNotas
+
   }
 
   qtdeEmails() {
-    const qtEmail = this.storageService.getDados('totalNotas')
-    if (qtEmail == null) {
-      return '0'
-    }
-    return "0" //qtEmail
+    const qtEmail = this.storageService.getDados('DadosDash') || {"totalEmail":0}
+    return qtEmail.totalEmail
     
   }
+  */
 
 
 }
