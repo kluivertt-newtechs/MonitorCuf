@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PoBreadcrumb } from '@po-ui/ng-components';
-import { DashboardService } from '../../../service/dashboard.service';
+import { DashboardService } from '../service/dashboard.service';
 import { SessionStorageService } from '../../../service/storage.service';
 
 @Component({

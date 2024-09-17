@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './main/dashboard/dashboard/dashboard.component';
-import { Cuf0069Component } from './main/monitores/cuf0069/cuf0069.component';
+import { Cuf0069Component } from './main/monitores/cuf0069/cuf0069/cuf0069.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PoBreadcrumb, PoPageAction, PoTableColumn, PoCheckboxGroupOption  } from '@po-ui/ng-components';
-import { Cuf0069Service } from 'src/app/service/cuf0069.service';
+import { Cuf0069Service } from '../service/cuf0069.service';
 import { SessionStorageService } from 'src/app/service/storage.service';
 
 @Component({
