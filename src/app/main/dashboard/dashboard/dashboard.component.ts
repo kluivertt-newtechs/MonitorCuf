@@ -1,39 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { PoBreadcrumb } from '@po-ui/ng-components';
-import { DashboardService } from '../service/dashboard.service';
-import { SessionStorageService } from '../service/storage.service';
-
-
+import { DashboardService } from '../../../service/dashboard.service';
+import { SessionStorageService } from '../../../service/storage.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-
-/*
+  /*
   DataIni:any;
   DataFim:any 
 */
-  retornoDados:any
+  retornoDados: any;
 
-  
   filtros: any = {
-    PeriodoIni: "",
-    PeriodoFim: ""
-      
-  }
+    PeriodoIni: '',
+    PeriodoFim: '',
+  };
 
-  informa = {"totalNotas":0, "totalEmail":0}
-  
+  informa = { totalNotas: 0, totalEmail: 0 };
+
   constructor(
-    private service: DashboardService, 
-    private storageService : SessionStorageService, 
+    private service: DashboardService,
+    private storageService: SessionStorageService
   ) {}
 
   public readonly breadcrumb: PoBreadcrumb = {
-    items: [{ label: 'Home', link: '/' }, { label: 'Dashboard' }]
+    items: [{ label: 'Home', link: '/' }, { label: 'Dashboard' }],
   };
 
   ngOnInit(): void {
@@ -45,7 +40,7 @@ export class DashboardComponent implements OnInit {
 
   setPeriodoIni() {
     const today = new Date();
-    this.filtros.PeriodoIni = ''
+    this.filtros.PeriodoIni = '';
     const pastDateI = new Date(today.setDate(today.getDate() - 30));
     const yearI = pastDateI.getFullYear();
     const monthI = ('0' + (pastDateI.getMonth() + 1)).slice(-2); // Adiciona zero à esquerda se necessário
@@ -55,30 +50,27 @@ export class DashboardComponent implements OnInit {
 
   setPeriodoFim() {
     const today = new Date();
-    this.filtros.PeriodoFim = ''
+    this.filtros.PeriodoFim = '';
     const pastDateF = new Date(today.setDate(today.getDate()));
     const yearF = pastDateF.getFullYear();
     const monthF = ('0' + (pastDateF.getMonth() + 1)).slice(-2); // Adiciona zero à esquerda se necessário
     const dayF = ('0' + pastDateF.getDate()).slice(-2); // Adiciona zero à esquerda se necessário
     this.filtros.PeriodoFim = `${yearF}-${monthF}-${dayF}`;
-    
   }
 
   atualizarDados() {
     this.service.getAll(this.filtros).subscribe({
-      next:result => {
-        this.informa = result
-
+      next: (result) => {
+        this.informa = result;
       },
-      error:erro => {
-        console.log(erro)
+      error: (erro) => {
+        console.log(erro);
       },
 
-      complete:() => {
-     //   this.storageService.setDados('DadosDash', this.retornoDados)
-      }
-    })
-
+      complete: () => {
+        //   this.storageService.setDados('DadosDash', this.retornoDados)
+      },
+    });
   }
 
   /*
@@ -94,6 +86,4 @@ export class DashboardComponent implements OnInit {
     
   }
   */
-
-
 }
