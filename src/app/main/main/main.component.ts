@@ -12,8 +12,8 @@ export class MainComponent implements OnInit {
       label: 'DashBoard',
       shortLabel: 'DashBoard',
       icon: 'po-icon-chart-columns',
-      link: '/dashboard',
-      //this.router.navigate(['dashboard'])
+      link: '/main/dashboard',
+      // this.router.navigate(['dashboard'])
     },
 
     {
@@ -21,7 +21,11 @@ export class MainComponent implements OnInit {
       shortLabel: 'Monitores',
       icon: 'po-icon-device-desktop',
       subItems: [
-        { label: 'CUF0069', link: '/monitores/cuf0069', icon: 'po-icon-mail' },
+        {
+          label: 'CUF0069',
+          link: '/main/monitor/cuf0069',
+          icon: 'po-icon-mail',
+        },
         //action: () => this.router.navigate(['cuf0069'])},
       ],
     },

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MonitoresComponent } from './monitores/monitores.component';
+import { Cuf0069Component } from './cuf0069/cuf0069/cuf0069.component';
 
 const routes: Routes = [
   {
@@ -8,13 +9,7 @@ const routes: Routes = [
     component: MonitoresComponent,
     children: [
       { path: '', pathMatch: 'full', redirectTo: '' },
-      {
-        path: 'cuf0069',
-        loadChildren: () =>
-          import('./cuf0069/cuf0069.module').then(
-            (module) => module.Cuf0069Module
-          ),
-      },
+      { path: 'cuf0069', component: Cuf0069Component },
     ],
   },
 ];
