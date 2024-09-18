@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MonitoresComponent } from './monitores/monitores.component';
-import { Cuf0069Component } from './cuf0069/cuf0069/cuf0069.component';
+import { Cuf0069Component } from './cuf0069/cuf0069.component';
 
 const routes: Routes = [
   {
