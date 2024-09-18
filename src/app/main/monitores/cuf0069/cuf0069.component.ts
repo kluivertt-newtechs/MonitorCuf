@@ -45,6 +45,12 @@ export class Cuf0069Component implements OnInit {
     { property: 'PdfNota', label: 'PDF Nota' },
     { property: 'PdfBoleto', label: 'PDF Boleto' },
     { property: 'PdfExtrato', label: 'PDF Extrato' },
+    { property: 'E-mail', label: 'E-mail' },
+    { property: 'Usuário FAT', label: 'Usuário FAT' },
+    { property: 'Cód Entrega', label: 'Cód Entrega' },
+    { property: 'Hora Criação', label: 'Hora Criação' },
+    { property: 'Hora Atual', label: 'Hora Atual' },
+    { property: 'Erro Atual', label: 'Erro Atual' },
   ];
 
   cuf0069Itens: any;
