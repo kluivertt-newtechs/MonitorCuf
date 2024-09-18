@@ -9,6 +9,6 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [MonitoresComponent, Cuf0069Component],
-  imports: [CommonModule, MonitoresRoutingModule, SharedModule, FormsModule],
+  imports: [CommonModule, MonitoresRoutingModule, SharedModule],
 })
 export class MonitoresModule {}

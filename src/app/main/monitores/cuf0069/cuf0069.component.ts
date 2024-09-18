@@ -8,6 +8,7 @@ import {
 } from '@po-ui/ng-components';
 import { Cuf0069Service } from '../service/cuf0069.service';
 import { SessionStorageService } from 'src/app/service/storage.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cuf0069',
@@ -17,21 +18,22 @@ import { SessionStorageService } from 'src/app/service/storage.service';
 export class Cuf0069Component implements OnInit {
   retornoCUF: any;
 
-  filtros: any = {
-    PeriodoIni: '',
-    PeriodoFim: '',
-    PageSize: '',
-    Page: '',
-    Executado: '',
-    Reenvio: '',
-    Pendente: '',
-    SemEmail: '',
-    Enfileirado: '',
-    Erro: '',
-    Estabelec: '',
-    Serie: '',
-    NotaFiscal: '',
-  };
+  filtros: any = {};
+
+  myForm: FormGroup = this.fb.group({
+    PeriodoIni: [''],
+    PeriodoFim: [''],
+    Executado: [''],
+    Reenvio: [true],
+    Pendente: [true],
+    SemEmail: [''],
+    Enfileirado: [''],
+    Erro: [''],
+    Estabelec: [''],
+    Serie: [''],
+    NotaFiscal: [''],
+    Enviado: [''],
+  });
 
   cuf0069Colunas: Array<PoTableColumn> = [
     { property: 'Situacao', label: 'Situação' },
@@ -54,32 +56,26 @@ export class Cuf0069Component implements OnInit {
   ];
 
   cuf0069Itens: any;
+  page: number = 1;
+  pageSize!: number;
 
   readonly Acao69: Array<PoPageAction> = [{ label: 'Atualiza' }];
-
-  public readonly breadcrumb: PoBreadcrumb = {
-    items: [{ label: 'Home', link: '/' }, { label: 'CUF0069' }],
-  };
 
   constructor(
     private service: Cuf0069Service,
     private storageService: SessionStorageService,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    this.setPeriodoIni();
-    this.setPeriodoFim();
-    this.atualizarDados()
-    this.filtros.Pendente = true;
-    this.filtros.Reenvio = true;
-    throw new Error('Metodo não implementado.');
+    this.atualizarDados();
   }
 
   atualizarDados() {
-    this.filtros.page = 1;
-    // this.service.getAll(this.filtros).subscribe({
-    this.service.getAllMonk().subscribe({
+    this.filtros = this.myForm.getRawValue();
+    this.service.getAll(this.filtros).subscribe({
+      // this.service.getAllMonk().subscribe({
       next: (result) => {
         (this.cuf0069Itens = result.items),
           this.storageService.setDados('DadosCuf0069', this.cuf0069Itens);
@@ -88,26 +84,6 @@ export class Cuf0069Component implements OnInit {
         console.log(erro);
       },
     });
-  }
-
-  setPeriodoIni() {
-    const today = new Date();
-    this.filtros.PeriodoIni = '';
-    const pastDateI = new Date(today.setDate(today.getDate() - 30));
-    const yearI = pastDateI.getFullYear();
-    const monthI = ('0' + (pastDateI.getMonth() + 1)).slice(-2); // Adiciona zero à esquerda se necessário
-    const dayI = ('0' + pastDateI.getDate()).slice(-2); // Adiciona zero à esquerda se necessário
-    this.filtros.PeriodoIni = `${yearI}-${monthI}-${dayI}`;
-  }
-
-  setPeriodoFim() {
-    const today = new Date();
-    this.filtros.PeriodoFim = '';
-    const pastDateF = new Date(today.setDate(today.getDate()));
-    const yearF = pastDateF.getFullYear();
-    const monthF = ('0' + (pastDateF.getMonth() + 1)).slice(-2); // Adiciona zero à esquerda se necessário
-    const dayF = ('0' + pastDateF.getDate()).slice(-2); // Adiciona zero à esquerda se necessário
-    this.filtros.PeriodoFim = `${yearF}-${monthF}-${dayF}`;
   }
 
   aDefinir() {}
