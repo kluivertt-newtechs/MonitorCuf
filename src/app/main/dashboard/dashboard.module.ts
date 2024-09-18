@@ -7,6 +7,6 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [DashboardComponent],
-  imports: [CommonModule, DashboardRoutingModule, SharedModule, FormsModule],
+  imports: [CommonModule,  SharedModule, DashboardRoutingModule, FormsModule],
 })
 export class DashboardModule {}

@@ -32,10 +32,10 @@ export class DashboardComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.setPeriodoIni();
-    this.setPeriodoFim();
-    this.atualizarDados();
-    throw new Error('Metodo não implementado.');
+    // this.setPeriodoIni();
+    // this.setPeriodoFim();
+    // this.atualizarDados();
+    // throw new Error('Metodo não implementado.');
   }
 
   setPeriodoIni() {
