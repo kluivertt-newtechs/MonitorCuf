@@ -70,7 +70,7 @@ export class Cuf0069Component implements OnInit {
   ngOnInit(): void {
     this.setPeriodoIni();
     this.setPeriodoFim();
-    //this.atualizarDados()
+    this.atualizarDados()
     this.filtros.Pendente = true;
     this.filtros.Reenvio = true;
     throw new Error('Metodo não implementado.');
@@ -78,7 +78,8 @@ export class Cuf0069Component implements OnInit {
 
   atualizarDados() {
     this.filtros.page = 1;
-    this.service.getAll(this.filtros).subscribe({
+    // this.service.getAll(this.filtros).subscribe({
+    this.service.getAllMonk().subscribe({
       next: (result) => {
         (this.cuf0069Itens = result.items),
           this.storageService.setDados('DadosCuf0069', this.cuf0069Itens);
