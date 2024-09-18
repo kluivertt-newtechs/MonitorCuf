@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: MonitoresComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: '' },
+      { path: '', pathMatch: 'full', redirectTo: 'cuf0069' },
       { path: 'cuf0069', component: Cuf0069Component },
     ],
   },
