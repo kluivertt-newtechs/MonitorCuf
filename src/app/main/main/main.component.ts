@@ -13,7 +13,6 @@ export class MainComponent implements OnInit {
       shortLabel: 'DashBoard',
       icon: 'po-icon-chart-columns',
       link: '/main/dashboard',
-      // this.router.navigate(['dashboard'])
     },
 
     {
@@ -26,7 +25,6 @@ export class MainComponent implements OnInit {
           link: '/main/monitor/cuf0069',
           icon: 'po-icon-mail',
         },
-        //action: () => this.router.navigate(['cuf0069'])},
       ],
     },
   ];
